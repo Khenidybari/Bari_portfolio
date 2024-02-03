@@ -1,0 +1,35 @@
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1); 
+    }
+    .navbar-brand {
+    font-weight: 600; 
+    color: #007bff;
+    }
+    .nav-item .nav-link {
+    color: #007bff; 
+    }
+    .nav-item .nav-link:hover {
+    color: #0056b3; 
+    }
+
+    .custom-table {
+
+        width: 100%;
+        margin-top: 2rem;
+    }
+    .custom-table img {
+        width: 150px;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 50%;
+    }
+
+    .section1 {
+        height: 600px;
+    }
+    .section2 {
+        height: 600px;
+    }
