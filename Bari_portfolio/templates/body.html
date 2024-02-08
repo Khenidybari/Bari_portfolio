@@ -1,10 +1,10 @@
 
 {% load static %}
 <div class="main" style="background-image: url('{% static "bg.jpg" %}'); 
-background-size: cover; 
-background-position: center; 
-background-repeat: no-repeat;
-height: 100vh;">
+background-size: 100% 100%; 
+background-attachment: fixed; 
+background-repeat: no-repeat;">
+
 
 
 <!-- about me -->>
@@ -16,13 +16,16 @@ height: 100vh;">
         <p> +639-9770-00003</p>
     </div>
     <div class="image">
-        <img src="{% static 'port.png' %}"  class="img-fluid" style="max-width: 95vh; height: 95vh;">
+        <img src="{% static 'port.png' %}"  class="img-fluid" style="max-width: 98vh; height: 98vh;">
     </div>
     <div class="text">
         <h3><strong>UI/UX Designer, Project Manager</strong></h3>
         <p>put this something chuchu in here kaya mamaya nayan kase about me tong yawa na to</p>
     </div>
 </div>
+
+
+
 
 
 
