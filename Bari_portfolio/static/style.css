@@ -13,13 +13,16 @@
     color: #0056b3; 
     }
     body {
-        
-        font-family: Monsterrat;
+        color: aliceblue;
+            font-family: 'Poppins', sans-serif;
         margin: 0;
         padding: 0;
     }
+    h5{
+        color: #ffbd07;
+    }
     .container {
-        max-width: 800px;
+        max-width: 900px;
         margin: 20px auto;
         padding: 20px;
         display: flex;
@@ -27,17 +30,15 @@
         justify-content: space-between;
     }
     .text {
-        flex: 1;
         padding: 0 20px;
-        text-align: center;
     }
     .image {
-        flex: 1;
+
         text-align: center;
     }
     .card-item {
         flex: 1;
-        max-width: calc(33.33% - 20px); /* Adjust this value according to your design */
+        max-width: calc(33.33% - 20px); 
         margin-bottom: 20px;
         padding: 20px;
         border: 1px solid #ccc;
