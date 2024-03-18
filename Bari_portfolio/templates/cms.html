@@ -112,55 +112,101 @@ linkColor.forEach(l=> l.addEventListener('click', colorLink))
         </header>
         <div class="l-navbar" id="nav-bar">
             <nav class="nav">
-                <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">BBBootstrap</span> </a>
-                    <div class="nav_list"> <a href="#" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a> <a href="#" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Users</span> </a> <a href="#" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Messages</span> </a> <a href="#" class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Bookmark</span> </a> <a href="#" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Files</span> </a> <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Stats</span> </a> </div>
-                </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a>
-            </nav>
+                <div> 
+                  <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">Admin</span> </a>
+                    <div class="nav_list nav nav-tabs"> 
+
+                      <div class="nav-item">
+                      <a href="#personal_info" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Personal Info</span> </a> 
+                     </div>
+                     <div class="nav-item">
+                      <a href="#skills" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Skills</span> </a> 
+                     </div>
+                     <div class="nav-item">
+                      <a href="#projects" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Projects</span> </a> 
+                      </div>
+               
+                  </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a>
+                  </div>
+                </nav>
         </div>
-        <!--Container Main start-->
-        <div class="height-100 bg-light">
-            <h4><form class="row g-3">
-                <div class="col-md-6">
-                  <label for="inputEmail4" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="inputEmail4">
-                </div>
-                <div class="col-md-6">
-                  <label for="inputPassword4" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="inputPassword4">
+        <!--Container1 Main start-->
+        <div class="height-100 bg-light" id="personal_info">
+          <h4><form class="row g-3" action="{% url 'base:personal' %}" enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+                <div class="col-md-12">
+                  <label for="about_me" class="form-label">Description About me</label>
+                  <input type="text" name="about_me" class="form-control" id="about_me">
                 </div>
                 <div class="col-12">
                   <label for="inputAddress" class="form-label">Address</label>
-                  <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                </div>
-                <div class="col-12">
-                  <label for="inputAddress2" class="form-label">Address 2</label>
-                  <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                  <input type="text" name="address" class="form-control" id="inputAddress">
                 </div>
                 <div class="col-md-6">
-                  <label for="inputCity" class="form-label">City</label>
-                  <input type="text" class="form-control" id="inputCity">
+                  <label for="contact" class="form-label">Contact Number</label>
+                  <input type="number" name="contact" class="form-control" id="contact">
+                </div>
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" name="email" class="form-control" id="email">
+                </div>
+                <div class="col-md-6">
+                  <label for="facebook" class="form-label">Facebook</label>
+                  <input type="text" name="facebook" class="form-control" id="facebook">
+                </div>
+                <div class="col-md-6">
+                  <label for="intagram" class="form-label">Instagram</label>
+                  <input type="text" name="instagram" class="form-control" id="intagram">
                 </div>
                 <div class="col-md-4">
                     <label for="inputCity" class="form-label">Select File</label>
-                        <input type="file" class="form-control" aria-label="file example" required>
-                </div>
-                <div class="col-md-2">
-                  <label for="inputZip" class="form-label">Zip</label>
-                  <input type="text" class="form-control" id="inputZip">
+                        <input type="file" name="pfp" class="form-control" aria-label="file example" required>
                 </div>
                 <div class="col-12">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                      Check me out
-                    </label>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <button type="submit" class="btn btn-primary">Sign in</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form></h4>
         </div>
-        <!--Container Main end-->
+        <!--Container1 Main end-->
+
+
+        <!--container 2 start-->
+        <div class="height-100 bg-light" id="skills">
+          <h4><form class="row g-3" action="{% url 'base:skills' %}" enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+              <div class="col-md-6">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" name="title" class="form-control" id="title">
+              </div>
+              <div class="col-12">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" name="description" class="form-control" id="description">
+              </div>
+              <div class="col-md-4">
+                  <label for="inputCity" class="form-label">Select File</label>
+                      <input type="file" name="icon" class="form-control" aria-label="file example" required>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form></h4>
+      </div>
+      <!--end of container 2-->
+
+
+      <!--container 3-->
+      <div class="height-100 bg-light" id="projects">
+        <h4><form class="row g-3" action="{% url 'base:projects' %}" enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+            <div class="col-md-4">
+                <label for="inputCity" class="form-label">Select File</label>
+                    <input type="file" name="image" class="form-control" aria-label="file example" required>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form></h4>
+    </div>
+      <!--end of container 3-->
 </body>
 </html>
