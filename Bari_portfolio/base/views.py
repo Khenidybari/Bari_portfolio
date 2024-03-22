@@ -4,11 +4,18 @@ from django.shortcuts import render,redirect
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html')
+    project = Project.objects.all()
+    context = {'project':project}
+    return render(request, 'home.html',context)
     
 def cms(request):
-    return render(request, 'cms.html')
+    user = User.objects.get(username='admin')
+    print(user.user_skill.all())
+    context = {'user_data': user}
+    return render(request, 'cms.html', context)
 
+
+#user
 def personal(request):
     user=User.objects.get(username='admin')
     if request.method == 'POST': 
@@ -19,7 +26,7 @@ def personal(request):
                 return redirect('base:personal')
             except Exception as e: 
                 print(f"Error:{e}")
-                context = {'form': form, 'error_message': "There was a problem saving the skill. Please try again."}
+                context = {'form': form, 'error_message': "There was a problem saving. Please try again."}
         else:
             print(form.errors)
     else:
@@ -28,6 +35,10 @@ def personal(request):
     context = {'form': form}
     return render(request, 'cms.html',context)
 
+
+
+
+#skills
 def skills(request):
      if request.method == 'POST': 
         form = Skillform(request.POST,request.FILES)
@@ -37,10 +48,10 @@ def skills(request):
                 instance = form.save(commit=False)
                 instance.user=User.objects.get(username='admin')
                 instance.save()
-                return redirect('base:skills')
+                return redirect('base:cms')
             except Exception as e: 
                 print(f"Error:{e}")
-                context = {'form': form, 'error_message': "There was a problem saving the skill. Please try again."}
+                context = {'form': form, 'error_message': "There was a problem saving. Please try again."}
         else:
             print(form.errors)
      else:
@@ -49,6 +60,44 @@ def skills(request):
      context = {'form': form}
      return render(request, 'cms.html')
 
+
+def updateskill(request):
+   if request.method == 'POST': 
+        if request.POST.get('skillid'):
+            skill = Skill.objects.get(id=request.POST.get('skillid'))
+            form = Skillform(request.POST,request.FILES,instance = skill)
+            if form.is_valid():
+            
+                try: 
+                    form.save()
+                    return redirect('base:cms')
+                except Exception as e: 
+                    print(f"Error:{e}")
+                    context = {'form': form, 'error_message': "There was a problem saving the skill. Please try again."}
+            else:
+                print(form.errors)
+        else:
+            form = Skillform()
+
+   context = {'form': form}
+   return render(request, 'cms.html')
+
+
+def deleteskill(request):
+
+    if request.method == "POST":
+        skillid=request.POST.get('skillid')
+        if skillid: 
+            try:
+                skill = Skill.objects.get(id=skillid)
+                skill.delete()
+                return redirect('base:cms')
+            except Exception as e:
+                print(request,f"an error occured:{e}")
+    return redirect('base:cms')
+
+
+#projects
 def projects(request):
     if request.method == 'POST': 
         form = Projectform(request.POST,request.FILES)
@@ -58,7 +107,7 @@ def projects(request):
                 instance = form.save(commit=False)
                 instance.user=User.objects.get(username='admin')
                 instance.save()
-                return redirect('base:projects')
+                return redirect('base:cms')
             except Exception as e: 
                 print(f"Error:{e}")
                 context = {'form': form, 'error_message': "There was a problem saving the skill. Please try again."}
@@ -68,4 +117,39 @@ def projects(request):
         form = Projectform()
 
     context = {'form': form}
+    return render(request, 'cms.html',context)
+
+
+def updateproject(request):
+   if request.method == 'POST': 
+        project = Project.objects.get(request.POST.get('project_id'))
+        form = Projectform(request.POST,request.FILES,instance = project)
+        if form.is_valid():
+          
+            try: 
+                form.save()
+                return redirect('base:cms')
+            except Exception as e: 
+                print(f"Error:{e}")
+                context = {'form': form, 'error_message': "There was a problem saving the skill. Please try again."}
+        else:
+            print(form.errors)
+   else:
+        form = Projectform()
+
+   context = {'form': form}
+   return render(request, 'cms.html')
+
+
+def deleteproject(request):
+    if request.method == 'POST': 
+        project = Project.objects.get(request.POST.get('project_id'))
+          
+        try: 
+            project.delete()
+            return redirect('base:cms')
+        except Exception as e: 
+            print(f"Error:{e}")
+            context = {'error_message': "There was a problem saving the project. Please try again."}
+        
     return render(request, 'cms.html')

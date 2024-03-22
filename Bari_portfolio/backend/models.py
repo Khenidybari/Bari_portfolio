@@ -18,10 +18,10 @@ class Skill(models.Model):
     title = models.CharField(max_length=200, null = True, blank=True)
     description = models.CharField(max_length=200, null = True, blank=True)
     icon = models.FileField(upload_to='images/', null = True, blank = True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE,null=True,blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,null=True,blank=True,related_name="user_skill")
 
-    def __str__(self):
-        return self.title
+    #  def __str__(self):
+    #     return self.title
     
 class Project(models.Model):
     image = models.FileField(upload_to='images/', null = True, blank = True)
