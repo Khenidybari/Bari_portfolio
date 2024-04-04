@@ -6,8 +6,9 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def home(request):
+    user = User.objects.get(id=1)
     project = Project.objects.all()
-    context = {'project':project}
+    context = {'project':project, 'user':user}
     return render(request, 'home.html',context)
     
 @login_required(login_url="/auth/login")

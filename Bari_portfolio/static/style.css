@@ -43,4 +43,15 @@
         text-align: center;
     }
 
-
+    #section{
+        height: 100vh;
+    }
+#section1{
+    height: 100vh;
+}
+.nav-link, .navbar-brand{
+    color: #ccc;
+}
+.nav-link:hover{
+    color:#ffbd07;
+}
