@@ -1,3 +1,12 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: transparent;
+    width: 100%; 
+}
+
+ 
  body {
         color: aliceblue;
             font-family: 'Poppins', sans-serif;
@@ -49,9 +58,40 @@
 #section1{
     height: 100vh;
 }
-.nav-link, .navbar-brand{
+#section2{
+    height: 100vh;
+}
+
+.nav-link{
     color: #ccc;
+}
+
+.navbar-brand{
+    color:#ffbd07;
 }
 .nav-link:hover{
     color:#ffbd07;
 }
+
+
+.reveal {
+    position: relative;
+    opacity: 0;
+  }
+  
+  .reveal.active {
+    opacity: 1;
+  }
+  .active.fade-left {
+    animation: fade-left 1s ease-in;
+  }
+  @keyframes fade-left {
+    0% {
+      transform: translateX(-100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }

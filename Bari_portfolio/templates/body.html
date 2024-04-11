@@ -3,76 +3,81 @@
 <!--navbar-->
 <!-- about me -->
 
-<div class="container align-items-center" id="section">
-    
-    <div class="text col-md-4">
-        <h4><strong>Mohammad John Khenidy A. Bari</strong></h4>
-        <br>
-        <p>{{user.address}}</p>
-           <p>{{user.email}}</p>
-                <p>{{user.contact}}</p>
-                <a class="btn btn-outline-warning" href="#section3" style="width: 100px;">Contacts</a>
-    </div>
-      <div class="image col-md-4">
-        <img src="{{user.profile_pic.url}}" class="img-fluid">
-    </div>
-    <div class="text col-md-4 d-flex flex-column justify-content-between">
-        <h5>INTRODUCTION</h5>
-        <h3><strong>UX Designer, Project Manager</strong></h3>
-        <p style="margin-bottom: 20px;">Welcome! I'm Khenidy, a UX Designer and Project Manager. I specialize in crafting intuitive interfaces while efficiently overseeing project lifecycles.</p>
-        <a class="btn btn-outline-warning" href="#section2" style="width: 100px;">Projects</a>
-    </div>
-</div>
+<div class="container-fluid">
+  
+  <div class="container align-items-center" id="section">
+        <div class="text col-md-4">
+          <h4><strong>Mohammad John Khenidy A. Bari</strong></h4>
+          <br>
+          <p>{{user.address}}</p>
+            <p>{{user.email}}</p>
+                  <p>{{user.contact}}</p>
+                  <a class="btn btn-outline-warning" href="#section3" style="width: 100px;">Contacts</a>
+      </div>
+        <div class="image col-md-4">
+          <img src="{{user.profile_pic.url}}" class="img-fluid">
+      </div>
+      <div class="text col-md-4 d-flex flex-column justify-content-between">
+          <h5>INTRODUCTION</h5>
+          <h3><strong>UX Designer, Project Manager</strong></h3>
+          <p style="margin-bottom: 20px;">Welcome! I'm Khenidy, a UX Designer and Project Manager. I specialize in crafting intuitive interfaces while efficiently overseeing project lifecycles.</p>
+          <a class="btn btn-outline-warning" href="#section2" style="width: 100px;">Projects</a>
+      </div>
+  </div>
+
+
 
 <!-- skills chuchu -->
 
-<div class="container" id="section1">
-    <strong style="padding-bottom: 15px;">ABOUT ME:</strong>
-    <p style="text-align: justify;">{{user.about_me}}</p>
-      
-<div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="container reveal fade-left" id="section1">
+        <strong style="padding-bottom: 15px;">ABOUT ME:</strong>
+        <p style="text-align: justify;">{{user.about_me}}</p>
+          
+    <div class="row row-cols-1 row-cols-md-2 g-4">
 
-  {% for skill in user.user_skill.all %} 
-  <div class="col" style="padding: 25px;">
-      <div class="card border-dark mb-3">
-          <div class="card-body bg-dark">
-            <div class="image col-md-4" style="margin: 0 auto; display: block;">
-              <img src="{{skill.icon.url}}" class="card-img">
-          </div>          
-            <p class="card-text text-center"><strong>{{skill.title}}</strong></p>
-            <p class="card-text text-center" style="text-align: justify;">{{skill.description}}</p>
-          </div>
-        </div>
-</div>
-{% endfor %}
+      {% for skill in user.user_skill.all %} 
+      <div class="col" style="padding: 25px;">
+          <div class="card border-dark mb-3">
+              <div class="card-body bg-dark">
+                <div class="image col-md-4" style="margin: 0 auto; display: block;">
+                  <img src="{{skill.icon.url}}" class="card-img">
+              </div>          
+                <p class="card-text text-center"><strong>{{skill.title}}</strong></p>
+                <p class="card-text text-center" style="text-align: justify;">{{skill.description}}</p>
+              </div>
+            </div>
+    </div>
+    {% endfor %}
 
 
+    </div>
 </div>
-</div>
+
 
 <!--projects-->
-<div class="container">
-        <div class="section" id="section2" style="padding-top: 25px;">
-            <h5>WORKS</h5>
-    <h2>Project Description</h2>
+
+<div class="container reveal fade-left" id="section2" style="padding-top: 25px;">
+      <div class="container-fluid"  >
+        <h5>WORK PROJECT</h5>
     <br>
     <p>This is where you describe your project in detail. You can include information about its purpose, features, technologies used, etc.</p>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for project_data in project %} 
+    <div class="col" style="padding: 25px;">
+    <div class="card h-100">
+    <img src="{{project_data.image.url}}" class="card-img" alt="...">
+    <div class="card-img-overlay">
+    <h5 class="card-title"></h5>
+    <p class="card-text"></p>
+    </div>
+    </div>
+    </div>
+    {% endfor %}
+    </div>
 </div>
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  {% for project_data in project %} 
-  <div class="col" style="padding: 25px;">
-    <div class="card h-100">
-      <img src="{{project_data.image.url}}" class="card-img" alt="...">
-      <div class="card-img-overlay">
-        <h5 class="card-title"></h5>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-  {% endfor %}
-</div>
-</div>
 
 
 
@@ -90,6 +95,8 @@
         <p><i class="fab fa-facebook-f icon"></i> Facebook: {{user.facebook}}</p>
         <p><i class="fab fa-instagram icon"></i> Instagram: {{user.instagram}}</p>
     </div>
+</div>
+
 </div>
 
 
