@@ -37,67 +37,61 @@
       </div>
         <p style="text-align: justify;"></p>
           
-    <div class="row row-cols-3">
-
-      {% for skill in user.user_skill.all %} 
-      <div class="col" style="padding: 25px;">
-          <div class="card border-dark mb-3">
+        <div class="row" style="display: flex; flex-wrap: wrap;">
+          {% for skill in user.user_skill.all %}
+          <div class="card border-dark">
               <div class="card-body bg-dark">
-                <div class="image col-md-4" style="margin: 0 auto; display: block;">
-                  <img src="{{skill.icon.url}}" class="card-img">
-              </div>          
-                <p class="card-text text-center"><strong>{{skill.title}}</strong></p>
-                <p class="card-text text-center" style="text-align: justify;">{{skill.description}}</p>
+                  <div class="image col-md-4" style="margin: 0 auto; display: block;">
+                      <img src="{{skill.icon.url}}" class="card-img">
+                  </div>
+                  <p class="card-text text-center"><strong>{{skill.title}}</strong></p>
+                  <p class="card-text text-center" style="text-align: justify;">{{skill.description}}</p>
               </div>
-            </div>
-    </div>
-    {% endfor %}
-
-
-    </div>
+          </div>
+          {% endfor %}
+      </div>
 </div>
 <!--end of skills-->
 
 
 <!--projects-->
 
-<div class="container reveal fade-left" id="section2" style="padding-top: 25px;">
-      <div class="container-fluid"  >
-        <h6>WORK PROJECT</h6>
-    <br>
-    <p>This is where you describe your project in detail. You can include information about its purpose, features, technologies used, etc.</p>
+<!-- Page Content -->
+<div class="container reveal fade-left" id="section2">
+  <div class="container-fluid">
+  <h6 class="title">Work Projects</h6>
+  <p>This is where you describe your project in detail. You can include information about its purpose, features, technologies used, etc.</p>
+</div>
+  <div class="row text-center text-lg-start">
+    {% for project_data in project %} 
+    <div class="col-lg-3 col-md-4 col-6">
+      <a href="#" class="d-block mb-4 h-100">
+        <img class="img-fluid" src="{{project_data.image.url}}" alt="">
+      </a>
     </div>
-    <div class="row row-cols-1 row-cols-md-3">
-      {% for project_data in project %} 
-      <div class="col mb-4">
-        <div class="card h-100">
-          <img src="{{project_data.image.url}}" class="card-img-top" alt="...">
-
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  
+    {% endfor %}
+</div>
 </div>
 
 
 
 <!--contacts-->
-<div class="h4 pb-2 mb-4 border-bottom" style="padding-top: 25px;"></div>
-
-<div class="container align-items-center" id="section3" >
-    <h5>Contact Me :</h5>
-    <div class="text col-md-6 ">
-        <p><i class="fas fa-envelope icon"></i> Email: {{user.email}}</p>
-        <p><i class="fas fa-phone icon"></i> Phone: {{user.contact}}</p>
-        <p><i class="fas fa-map-marker-alt icon"></i> Address: {{user.address}}</p>
-    </div>
-    <div class="text col-md-4 d-flex flex-column justify-content-between">
-        <p><i class="fab fa-facebook-f icon"></i> Facebook: {{user.facebook}}</p>
-        <p><i class="fab fa-instagram icon"></i> Instagram: {{user.instagram}}</p>
-    </div>
-</div>
-
-</div>
 
 
+<footer class="h4 pb-2 mb-4 border-bottom border-top" style="padding-top: 25px;"></div>
+
+  <div class="container align-items-center" id="section3">
+      <h6 class="title">Contact Me :</h6>
+      <div class="text col-md-6 ">
+          <p><i class="fas fa-envelope icon"></i> Email: {{user.email}}</p>
+          <p><i class="fas fa-phone icon"></i> Phone: {{user.contact}}</p>
+          <p><i class="fas fa-map-marker-alt icon"></i> Address: {{user.address}}</p>
+      </div>
+      <div class="text col-md-4 d-flex flex-column justify-content-between">
+          <p><i class="fab fa-facebook-f icon"></i> Facebook: {{user.facebook}}</p>
+          <p><i class="fab fa-instagram icon"></i> Instagram: {{user.instagram}}</p>
+      </div>
+  </div>
+  
+  </footer>
+  
