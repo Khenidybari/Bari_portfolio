@@ -13,30 +13,35 @@
         margin: 0;
         padding: 0;
     }
-    .card {
-      flex-basis: calc(25% - 20px); /* Adjust for margin */
-      margin: 10px;
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
   }
 
-  /* Media queries for responsiveness */
-  @media (max-width: 1200px) {
+  .card {
+      width: calc(25% - 20px); /* Adjust the width based on the number of items per row */
+      margin-bottom: 20px;
+      box-sizing: border-box;
+  }
+
+  @media screen and (max-width: 992px) {
       .card {
-          flex-basis: calc(33.33% - 20px); /* Adjust for margin */
+          width: calc(33.33% - 20px); /* Change to three items per row on smaller screens */
       }
   }
 
-  @media (max-width: 992px) {
+  @media screen and (max-width: 768px) {
       .card {
-          flex-basis: calc(50% - 20px); /* Adjust for margin */
+          width: calc(50% - 20px); /* Change to two items per row on even smaller screens */
       }
   }
 
-  @media (max-width: 576px) {
+  @media screen and (max-width: 576px) {
       .card {
-          flex-basis: calc(100% - 20px); /* Adjust for margin */
+          width: calc(100% - 20px); /* Change to single item per row on phones */
       }
   }
-
     h5{
         color: aliceblue;
 
