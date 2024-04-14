@@ -72,6 +72,11 @@ function reveal() {
 
 window.addEventListener("scroll", reveal);
 
+$('.carousel').carousel()
+
+$('.carousel').carousel({
+  interval: 2000
+})
 </script>
 
 <style>
@@ -92,6 +97,8 @@ window.addEventListener("scroll", reveal);
       }
   }
   
+
+  
 </style>
 </head>
 <body 
@@ -100,6 +107,8 @@ style="background-image: url('{% static "hmm.jpg" %}');
 background-size: 100% 100%; 
 background-attachment: fixed; 
 background-repeat: no-repeat;">
+
+
   
   <!-- navbar -->
 <header>

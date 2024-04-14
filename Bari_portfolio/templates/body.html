@@ -1,39 +1,43 @@
 
 {% load static %}
 <!--navbar-->
+
+<header class="header" id="section">
+  <div class="container">
+      <div class="infos">
+          <h5 class="subtitle">Hello,I'm</h5>
+          <h6 class="title">Khenidy Bari</h6>
+          <p>UI/UX Designer</p>
+
+          <div class="buttons pt-3">
+              <a class="btn btn-primary rounded"href="#section3">CONTACTS</a>
+              <a class="btn btn-dark rounded"href = "#section2">PORTFOLIO</a>
+          </div>      
+      </div>              
+      <div class="img-holder">
+          <img src="{{user.profile_pic.url}}" alt="">
+      </div>      
+  </div>  
+
+
+
 <!-- about me -->
-
-<div class="container-fluid">
-  
-  <div class="container align-items-center" id="section">
-        <div class="text col-md-4">
-          <h4><strong>Mohammad John Khenidy A. Bari</strong></h4>
-          <br>
-          <p>{{user.address}}</p>
-            <p>{{user.email}}</p>
-                  <p>{{user.contact}}</p>
-                  <a class="btn btn-outline-warning" href="#section3" style="width: 100px;">Contacts</a>
-      </div>
-        <div class="image col-md-4">
-          <img src="{{user.profile_pic.url}}" class="img-fluid">
-      </div>
-      <div class="text col-md-4 d-flex flex-column justify-content-between">
-          <h5>INTRODUCTION</h5>
-          <h3><strong>UX Designer, Project Manager</strong></h3>
-          <p style="margin-bottom: 20px;">Welcome! I'm Khenidy, a UX Designer and Project Manager. I specialize in crafting intuitive interfaces while efficiently overseeing project lifecycles.</p>
-          <a class="btn btn-outline-warning" href="#section2" style="width: 100px;">Projects</a>
-      </div>
-  </div>
-
-
-
 <!-- skills chuchu -->
 
   <div class="container reveal fade-left" id="section1">
-        <strong style="padding-bottom: 15px;">ABOUT ME:</strong>
-        <p style="text-align: justify;">{{user.about_me}}</p>
+        <div class="row text-center text-md-left">
+          <div class="col-md-3">
+              <img src="{{user.profile_pic.url}}" alt="" class="img-thumbnail mb-4">
+          </div>
+          <div class="pl-md-4 col-md-9">
+              <h6 class="title">Khenidy Bari</h6>
+              <p class="subtitle">UI/UX Designer</p>
+              <p>{{user.about_me}}</p>
+          </div>
+      </div>
+        <p style="text-align: justify;"></p>
           
-    <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="row row-cols-3">
 
       {% for skill in user.user_skill.all %} 
       <div class="col" style="padding: 25px;">
@@ -52,32 +56,29 @@
 
     </div>
 </div>
+<!--end of skills-->
 
 
 <!--projects-->
 
 <div class="container reveal fade-left" id="section2" style="padding-top: 25px;">
       <div class="container-fluid"  >
-        <h5>WORK PROJECT</h5>
+        <h6>WORK PROJECT</h6>
     <br>
     <p>This is where you describe your project in detail. You can include information about its purpose, features, technologies used, etc.</p>
     </div>
+    <div class="row row-cols-1 row-cols-md-3">
+      {% for project_data in project %} 
+      <div class="col mb-4">
+        <div class="card h-100">
+          <img src="{{project_data.image.url}}" class="card-img-top" alt="...">
 
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-    {% for project_data in project %} 
-    <div class="col" style="padding: 25px;">
-    <div class="card h-100">
-    <img src="{{project_data.image.url}}" class="card-img" alt="...">
-    <div class="card-img-overlay">
-    <h5 class="card-title"></h5>
-    <p class="card-text"></p>
+        </div>
+      </div>
+      {% endfor %}
     </div>
-    </div>
-    </div>
-    {% endfor %}
-    </div>
+  
 </div>
-
 
 
 
